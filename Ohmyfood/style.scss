@@ -5,28 +5,31 @@ $secondary: #FF79DA;
 $tertiary: #99E2D0;
 $third: #cccccc;
 $fourth: white;
+$fifth: #f2f2f2;
 
 $border-first: 1px solid #9356DC;
 $border-first-radius: 50%; 
 
 $padding-menu: 20px;
 
+@mixin respond($breakpoint) {
+    @if($breakpoint == medium)  {
+      @media (max-width: 992px) { @content }
+    };
 
-    $mobile:768px;
-    $tablet:992px;
-    $desktop:1024px;
+    @if($breakpoint == small)  {
+      @media (max-width: 768px) { @content }
+    };
+  }
 
-
-// @mixin mobile {
-//     @media (min-width: map-get($breakpoints, "mobile")) {
-//         @content;
-//         .choiceMenu{
-//         flex-direction: row;
-//         justify-content: center;    
-//         }
-
-//     }
-// }
+.choiceMenu{
+    flex-direction: row;
+    justify-content: center;    
+    @include respond(small) {
+        flex-direction: column;
+        align-items: center;
+      }
+}
 
 body{
     width: 100%;
@@ -34,62 +37,51 @@ body{
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
-    } 
-
-    @mixin flexing-uniform($direction: column)
-@media (min-width: $mobile) and (max-width: $tablet) {
-    body{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    }
-    .navBar{
-        display: flex;
-        text-align: center;
-    }
-}
-
-@mixin tablet {
-    @media (min-width: map-get($breakpoints, "tablet")) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: map-get($breakpoints, "desktop")) {
-        @content;
-    }
-}
-
-body{
-    @include mobile{
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-        
-    }
-
-    .row{
-        display: flex;
+    align-items: center;
+    @include respond(small) {
         flex-flow: row wrap;
-    }
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    } 
+}
 
-    @include tablet{
+main{
+    width: 100%;
+}
 
+.logo{
+    @include respond(small) {
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        display: flex;
     }
 }
 
-h1{
-    color: black;
+.navBar{
+    display: flex;
+    text-align: center;
+}
+
+.bookMenu{
+    background: $fifth;
+    
 }
 
 .location{
     background: $third;
+    display: flex;
+    @include respond(small) {
+        justify-content: center;
+    }
 }
+
+.location i{
+    padding-right: $padding-menu;
+}
+
+
 
 .exRest{
     color: $primary;
