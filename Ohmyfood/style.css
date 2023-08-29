@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+@media (min-width: 768px) {
+  body {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  body .choiceMenu {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+body .row {
+  display: flex;
+  flex-flow: row wrap;
+}
+h1 {
+  color: black;
+}
+
+.location {
+  background: #cccccc;
+}
+
+.exRest {
+  color: #9356DC;
+}
+
+.choiceMenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.choiceMenuList, .location {
+  display: flex;
+}
+
+.choiceMenuList {
+  padding-left: 20px;
+}
+
+.choiceMenuBtn {
+  border: 1px solid #9356DC;
+  border-radius: 50%;
+  color: white;
+  background: #9356DC;
+  position: relative;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
