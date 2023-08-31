@@ -10,7 +10,7 @@
 @media (max-width: 768px) {
   .choiceMenu {
     flex-direction: column;
-    align-items: center;
+    align-items: left;
   }
 }
 
@@ -60,7 +60,7 @@ header {
 }
 
 .bookMenu {
-  background: #fafafa;
+  background: white;
 }
 .bookMenu h2 {
   margin-top: 0px;
@@ -73,7 +73,7 @@ header {
   .bookMenu {
     text-align: center;
   }
-  p .bookMenu {
+  .bookMenu p {
     width: 200px;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -83,6 +83,8 @@ header {
 
 .menuOption {
   width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 .location {
@@ -113,13 +115,16 @@ header {
   display: flex;
   justify-content: space-between;
 }
+.choiceMenu i {
+  padding-right: 20px;
+}
 
 .choiceMenuList, .location {
   display: flex;
 }
 
 .choiceMenuList {
-  padding-left: 20px;
+  width: 80%;
 }
 @media (max-width: 768px) {
   .choiceMenuList {
@@ -142,10 +147,26 @@ header {
 
 .choiceMenuBtnIn {
   width: 100%;
+  text-align: left;
+  padding-left: 30px;
+  border: 1px solid #fafafa;
+  border-radius: 15px;
+  font-size: 14px;
 }
 @media (max-width: 768px) {
   .choiceMenuBtnIn {
     display: block;
     width: 100%;
   }
+}
+
+.restaurant {
+  background: #fafafa;
+}
+
+.restaurantOptions {
+  border: 1px solid #fafafa;
+  flex-direction: column;
+  display: flex;
+  border-width: 80px;
 }

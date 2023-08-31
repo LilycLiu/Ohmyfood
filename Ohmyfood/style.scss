@@ -4,18 +4,23 @@
 //     box-sizing: border-box;
 // }
 
-$primary:#9356DC;
-$secondary: #FF79DA;
+$purple:#9356DC;
+$pink: #FF79DA;
 $tertiary: #99E2D0;
-$third: #f2f2f2;
-$fourth: white;
-$fifth: #fafafa;
+$lightGray: #f2f2f2;
+$white: white;
+$veryLightGray: #fafafa;
 $textFont: "roboto", sans-serif;
 
 $border-first: 1px solid #9356DC;
+$border-second: 1px solid #fafafa;
+
 $border-first-radius: 50%; 
+$border-second-radius: 15px; 
 
 $padding-menu: 20px;
+$padding-general:30px;
+$font-size:14px;
 
 * {
     font-family: $textFont;
@@ -40,7 +45,7 @@ $padding-menu: 20px;
     justify-content: center;    
     @include respond(small) {
         flex-direction: column;
-        align-items: center;
+        align-items: left;
       }
 }
 
@@ -64,11 +69,9 @@ main{
 }
 
 header{
-    // display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    
+    width: 100%; 
 }
 
 .logo{
@@ -88,7 +91,7 @@ header{
 }
 
 .bookMenu{
-    background: $fifth;
+    background: $white;
     & h2  {
         margin-top: 0px;
         padding-top: $padding-menu;       
@@ -98,7 +101,7 @@ header{
     }
     @include respond(small) {
         text-align: center;
-        p & {
+        & p {
             width: 200px;
             overflow-wrap: break-word;
             word-wrap: break-word;
@@ -110,10 +113,12 @@ header{
 
 .menuOption{
     width: 100%;
+    border-top-left-radius: $border-second-radius + 10;
+    border-top-right-radius: $border-second-radius + 10;
 }
 
 .location{
-    background: $third;
+    background: $lightGray;
     display: flex;
     width: 100%;
     box-shadow: inset 0 5px 5px -7px rgba(0,0,0,0.4);
@@ -130,9 +135,9 @@ header{
 
 
 .exRest{
-    background: $primary;
-    color: $fourth;
-    border: 1px solid $primary;
+    background: $purple;
+    color: $white;
+    border: 1px solid $purple;
     border-radius: 80px;
     
 
@@ -140,8 +145,12 @@ header{
 
 .choiceMenu{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
+    & i {
+        padding-right: $padding-menu;
+    }
 }
+
 
 .choiceMenuList, .location{
     display: flex;
@@ -149,7 +158,8 @@ header{
 }
 
 .choiceMenuList{
-    padding-left: $padding-menu;
+        width: 80%;
+
     @include respond(small) {
         width: 80%;
         padding-left: 0;
@@ -160,8 +170,8 @@ header{
 .choiceMenuBtn{
     border: $border-first;
     border-radius: $border-first-radius;
-    color: $fourth;
-    background: $primary;
+    color: $white;
+    background: $purple;
     position: relative;
     right: -10px;
     width: $padding-menu;
@@ -171,9 +181,26 @@ header{
 
 .choiceMenuBtnIn{
     width: 100%;
+    text-align: left;
+    padding-left: $padding-general;
+    border: $border-second;
+    border-radius: $border-second-radius;
+    font-size: $font-size;
     @include respond(small) {
     display: block;
     width: 100%;
     }
     
 }
+
+.restaurant{
+    background: $veryLightGray;
+}
+
+.restaurantOptions{
+    border: 1px solid $veryLightGray;
+    flex-direction: column;;
+    display: flex;
+    border-width: 80px;
+}
+
