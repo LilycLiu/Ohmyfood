@@ -15,12 +15,17 @@ $textFont: "roboto", sans-serif;
 $border-first: 1px solid #9356DC;
 $border-second: 1px solid #fafafa;
 
-$border-first-radius: 50%; 
-$border-second-radius: 15px; 
+$border-radiusPC: 50%; 
+$border-radiusPX: 15px; 
 
 $padding-menu: 20px;
-$padding-general:30px;
-$font-size:14px;
+$padding-general: 30px;
+$font-size: 14px;
+$widthPX: 16px;
+$widthPC: 50%;
+$gap: 10px;
+$box-shadow: 0px 0px 8px 2px #00000022;
+$box-shadowpurple: 0px 0px 8px 2px #9356DC;
 
 * {
     font-family: $textFont;
@@ -36,10 +41,6 @@ $font-size:14px;
     };
   }
 
-@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $default) {
-    box-shadow: $x-axis $y-axis $blur $color;
-  }
-
 .choiceMenu{
     flex-direction: row;
     justify-content: center;    
@@ -50,13 +51,14 @@ $font-size:14px;
 }
 
 body{
-    width: 100%;
-    max-width: 1200px;
+    width: $widthPC + 50;
+    max-width: $widthPX + 1184;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 $padding-menu;
     box-sizing: border-box;
     align-items: center;
     @include respond(small) {
+        padding: unset;
         flex-flow: row wrap;
         justify-content: center;
         align-items: center;
@@ -65,29 +67,29 @@ body{
 }
 
 main{
-    width: 100%;
+    width: $widthPC + 50;
 }
 
 header{
     flex-direction: column;
     align-items: center;
-    width: 100%; 
+    width: $widthPC + 50; 
 }
 
 .logo{
-    padding: 20px 0px 20px 0px;
+    padding: $padding-menu 0px $padding-menu 0px;
     @include respond(small) {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: $widthPC;
     }
 }
 
 .navBar{
     display: flex;
     text-align: center;
-    width: 100%;
+    width: $widthPC + 50;
 }
 
 .bookMenu{
@@ -97,34 +99,34 @@ header{
         padding-top: $padding-menu;       
     }
     & p {
-        font-size: 28px;
+        font-size: $font-size + 4;
     }
+
     @include respond(small) {
         text-align: center;
         & p {
-            width: 200px;
-            overflow-wrap: break-word;
             word-wrap: break-word;
-            word-break: break-word;
+            padding-bottom: $padding-menu;
+            margin: 0px auto;
         }
     }
     
 }
 
 .menuOption{
-    width: 100%;
-    border-top-left-radius: $border-second-radius + 10;
-    border-top-right-radius: $border-second-radius + 10;
+    width: $widthPC + 50;
+    border-top-left-radius: $border-radiusPX + 10;
+    border-top-right-radius: $border-radiusPX + 10;
 }
 
 .location{
     background: $lightGray;
     display: flex;
-    width: 100%;
+    width: $widthPC + 50;
     box-shadow: inset 0 5px 5px -7px rgba(0,0,0,0.4);
     @include respond(small) {
         justify-content: center;
-        width: 100%;
+        width: $widthPC + 50;
     }
 }
 
@@ -132,20 +134,29 @@ header{
     padding-right: $padding-menu;
 }
 
-
+.topMenu > h2, .restaurant > h2{
+    padding-left: $padding-menu + 10;
+    padding-top: $padding-menu + 10;
+}
 
 .exRest{
     background: $purple;
     color: $white;
     border: 1px solid $purple;
-    border-radius: 80px;
-    
-
+    border-radius: $border-radiusPC + 65;
+    width: $widthPC + 50;
+    height: $widthPX + 50;
+    font-size: $font-size + 8;
+    @include respond(small) {
+        justify-content: center;
+        width: $widthPC + 5;
+    }
 }
 
 .choiceMenu{
     display: flex;
     justify-content: space-between; 
+    gap: $gap + 10;
     & i {
         padding-right: $padding-menu;
     }
@@ -158,39 +169,41 @@ header{
 }
 
 .choiceMenuList{
-        width: 80%;
+        width: $widthPC + 45;
+        height: $widthPX + 50;
+        font-size: $font-size + 8;
 
     @include respond(small) {
-        width: 80%;
+        align-self: center;
         padding-left: 0;
+
         }
        
 }
 
 .choiceMenuBtn{
     border: $border-first;
-    border-radius: $border-first-radius;
+    border-radius: $border-radiusPC;
     color: $white;
     background: $purple;
     position: relative;
     right: -10px;
-    width: $padding-menu;
-    height: $padding-menu;
+    width: $padding-menu + 5;
+    height: $padding-menu + 5;
     text-align: center;
 }
 
 .choiceMenuBtnIn{
-    width: 100%;
+    width: $widthPC + 50;
     text-align: left;
     padding-left: $padding-general;
-    border: $border-second;
-    border-radius: $border-second-radius;
-    font-size: $font-size;
+    border: none;
+    border-radius: $border-radiusPX;
+    font-size: $font-size + 8;
+    box-shadow: $box-shadow;
     @include respond(small) {
     display: block;
-    width: 100%;
     }
-    
 }
 
 .restaurant{
@@ -199,8 +212,8 @@ header{
 
 .restaurantOptions{
     border: 1px solid $veryLightGray;
-    flex-direction: column;;
+    flex-direction: column;
     display: flex;
-    border-width: 80px;
+    border-width: $widthPX + 64;
 }
 

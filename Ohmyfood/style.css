@@ -24,6 +24,7 @@ body {
 }
 @media (max-width: 768px) {
   body {
+    padding: unset;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
@@ -67,17 +68,16 @@ header {
   padding-top: 20px;
 }
 .bookMenu p {
-  font-size: 28px;
+  font-size: 18px;
 }
 @media (max-width: 768px) {
   .bookMenu {
     text-align: center;
   }
   .bookMenu p {
-    width: 200px;
-    overflow-wrap: break-word;
     word-wrap: break-word;
-    word-break: break-word;
+    padding-bottom: 20px;
+    margin: 0px auto;
   }
 }
 
@@ -104,16 +104,31 @@ header {
   padding-right: 20px;
 }
 
+.topMenu > h2, .restaurant > h2 {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
 .exRest {
   background: #9356DC;
   color: white;
   border: 1px solid #9356DC;
-  border-radius: 80px;
+  border-radius: 115%;
+  width: 100%;
+  height: 66px;
+  font-size: 22px;
+}
+@media (max-width: 768px) {
+  .exRest {
+    justify-content: center;
+    width: 55%;
+  }
 }
 
 .choiceMenu {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 .choiceMenu i {
   padding-right: 20px;
@@ -124,11 +139,13 @@ header {
 }
 
 .choiceMenuList {
-  width: 80%;
+  width: 95%;
+  height: 66px;
+  font-size: 22px;
 }
 @media (max-width: 768px) {
   .choiceMenuList {
-    width: 80%;
+    align-self: center;
     padding-left: 0;
   }
 }
@@ -140,8 +157,8 @@ header {
   background: #9356DC;
   position: relative;
   right: -10px;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   text-align: center;
 }
 
@@ -149,14 +166,14 @@ header {
   width: 100%;
   text-align: left;
   padding-left: 30px;
-  border: 1px solid #fafafa;
+  border: none;
   border-radius: 15px;
-  font-size: 14px;
+  font-size: 22px;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1333333333);
 }
 @media (max-width: 768px) {
   .choiceMenuBtnIn {
     display: block;
-    width: 100%;
   }
 }
 
