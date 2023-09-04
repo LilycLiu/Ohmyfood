@@ -32,6 +32,12 @@ body {
   }
 }
 
+#navTop {
+  display: flex;
+  text-align: center;
+  width: 100%;
+}
+
 main {
   width: 100%;
 }
@@ -62,13 +68,13 @@ header {
 
 .bookMenu {
   background: #f2f2f2;
-  padding: 20px 0px 40px 0px;
+  padding: 20px 0px 60px 0px;
 }
 .bookMenu h2 {
   margin-top: 0px;
   padding-top: 20px;
 }
-.bookMenu p {
+.bookMenu:nth-child(2) {
   font-size: 18px;
 }
 @media (max-width: 768px) {
@@ -90,6 +96,7 @@ header {
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
+  position: relative;
 }
 
 .location {
@@ -117,6 +124,7 @@ header {
 .exRest {
   background: #9356DC;
   color: white;
+  background-image: linear-gradient(#FF79DA, #9356DC);
   border: 1px solid #9356DC;
   border-radius: 80px;
   width: 100%;
@@ -134,9 +142,21 @@ header {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 80px;
 }
 .choiceMenu i {
+  padding-right: 20px;
+}
+
+.choiceCourses {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 80px;
+  flex-direction: column;
+  background: #f2f2f2;
+}
+.choiceCourses i {
   padding-right: 20px;
 }
 
@@ -156,6 +176,30 @@ header {
   }
 }
 
+#heartIcon {
+  width: 50px;
+  height: 50px;
+  color: #9356DC;
+  position: relative;
+  animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  30% {
+    top: 50px;
+  }
+  68%, 72% {
+    left: 50px;
+  }
+  100% {
+    top: 100px;
+    left: 100%;
+  }
+}
 .choiceMenuBtn {
   border: 1px solid #9356DC;
   border-radius: 50%;
@@ -179,9 +223,22 @@ header {
   font-size: 22px;
   box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1333333333);
 }
+.choiceMenuBtnMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  padding-left: 30px;
+  border: none;
+  border-radius: 15px;
+  font-size: 22px;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1333333333);
+}
+
 .restaurant {
   background: #f2f2f2;
-  padding: 10px;
+  padding: 10px 10px 80px 10px;
 }
 
 .restaurantCards {
@@ -189,21 +246,42 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  position: relative;
 }
 
 .restaurantCard {
   width: 90%;
   background: white;
   border-radius: 20px;
+  position: relative;
+}
+.restaurantCard .restaurantNew {
+  position: absolute;
+  right: 20px;
+  justify-content: center;
+  background: #99E2D0;
+  color: #139274;
+  padding: 10px 40px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 4px;
 }
 
 .restaurantOptions {
   flex-direction: column;
   display: flex;
+  text-decoration: none;
 }
 
 .des {
-  padding-left: 20px;
+  padding: 10px 0px 10px 5px;
+}
+.des p {
+  font-size: 24px;
+  color: black;
+}
+.des :first-child {
+  font-weight: bold;
 }
 
 footer {
@@ -211,9 +289,68 @@ footer {
   color: white;
   background: #333333;
 }
+footer .logo {
+  filter: invert(1);
+  margin: unset;
+  width: 200px;
+  padding: 30px 0px 10px 50px;
+}
 footer .footerBottom {
-  padding-left: 50px;
+  padding: 0px 0px 20px 50px;
+  font-size: 32px;
 }
 footer .footerBottom .footerWord {
   gap: 10px;
+}
+
+#suggest {
+  padding-right: 19px;
+}
+
+#partner {
+  padding-right: 9px;
+}
+
+.navTop {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 40px;
+}
+
+#arrowLeft {
+  font-size: 40px;
+}
+.mainPart {
+  display: flex;
+  background: #f2f2f2;
+  padding: 0px 40px 0px 40px;
+  align-items: center;
+  font-size: 40px;
+  gap: 20px;
+  bottom: 200px;
+  width: 100%;
+  padding-top: 200px;
+}
+.mainPart p {
+  font-family: "shrikhand", sans-serif;
+}
+
+.courseTitle {
+  background: #f2f2f2;
+  margin-top: 0px;
+}
+
+.dessert p:nth-child(1) {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px;
+}
+
+.dessert {
+  padding: 0px 10px 0px 10px;
+  border: 1px white;
+  background: white;
+  width: 100%;
 }

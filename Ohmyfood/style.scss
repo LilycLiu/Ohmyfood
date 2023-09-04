@@ -11,8 +11,11 @@ $gray: #e6e6e6;
 $lightGray: #f2f2f2;
 $darkGray: #333333;
 $white: white;
+$lightGreen: #99E2D0;
+$darkGreen: #139274;
 $veryLightGray: #fafafa;
 $textFont: "roboto", sans-serif;
+$titleFont: "shrikhand", sans-serif;
 
 $border-first: 1px solid #9356DC;
 $border-second: 1px solid #fafafa;
@@ -68,6 +71,12 @@ body{
     } 
 }
 
+#navTop{
+    display: flex;
+    text-align: center;
+    width: $widthPC + 50;
+}
+
 main{
     width: $widthPC + 50;
 }
@@ -96,12 +105,12 @@ header{
 
 .bookMenu{
     background: $lightGray;
-    padding: $padding-menu 0px $padding-menu + 20 0px;
+    padding: $padding-menu 0px $padding-menu + 40 0px;
     & h2  {
         margin-top: 0px;
         padding-top: $padding-menu;       
     }
-    & p {
+    &:nth-child(2) {
         font-size: $font-size + 4;
     }
 
@@ -123,6 +132,7 @@ header{
     align-self: center;
     height: 300px;
     object-fit: cover;
+    position: relative;
 }
 
 .location{
@@ -148,6 +158,7 @@ header{
 .exRest{
     background: $purple;
     color: $white;
+    background-image: linear-gradient($pink, $purple);
     border: 1px solid $purple;
     border-radius: $border-radiusPX + 65;
     width: $widthPC + 50;
@@ -163,12 +174,23 @@ header{
     display: flex;
     justify-content: space-between; 
     gap: $gap + 10;
-    padding-bottom: $padding-menu + 10;
+    padding-bottom: 80px;
     & i {
         padding-right: $padding-menu;
     }
 }
 
+.choiceCourses{
+    display: flex;
+    justify-content: space-between; 
+    gap: $gap + 10;
+    padding-bottom: 80px;
+    flex-direction: column;
+    background: $lightGray;
+    & i {
+        padding-right: $padding-menu;
+    }
+}
 
 .choiceMenuList, .location{
     display: flex;
@@ -185,7 +207,32 @@ header{
         }
        
 }
+#heartIcon{
+    width: 50px;
+    height: 50px;
+    color: $purple;
+    position: relative;
+    animation: mymove 5s infinite;
+}
 
+@keyframes mymove{
+    0% {
+        top: 0;
+        left: 0;
+      }
+      30% {
+        top: 50px;
+      }
+      68%,
+      72% {
+        left: 50px;
+      }
+      100% {
+        top: 100px;
+        left: 100%;
+      }
+}
+  
 .choiceMenuBtn{
     border: $border-first;
     border-radius: $border-radiusPC;
@@ -213,9 +260,22 @@ header{
     }
 }
 
+.choiceMenuBtnMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $widthPC + 50;
+    text-align: left;
+    padding-left: $padding-general;
+    border: none;
+    border-radius: $border-radiusPX;
+    font-size: $font-size + 8;
+    box-shadow: $box-shadow;
+}
+
 .restaurant{
     background: $lightGray;
-    padding: $padding-menu - 10;
+    padding: 10px 10px 80px 10px;
 }
 
 .restaurantCards{
@@ -223,36 +283,121 @@ header{
     flex-direction: column;
     align-items: center;
     gap: $gap + 20px;
-}
+    position: relative;
+    }
+
 
 .restaurantCard{
     width: $widthPC + 40;
     background: $white;
     border-radius: $border-radiusPX + 5;
+    position: relative;
+    & .restaurantNew{
+        position: absolute;
+        right: 20px;
+        justify-content: center;
+        background: $lightGreen;
+        color: $darkGreen;
+        padding: 10px 40px;
+        font-size: $font-size + 8;
+        font-weight: bold;
+        border-radius: 4px;
+    }
 }
 
 .restaurantOptions{
     flex-direction: column;
     display: flex;
+    text-decoration: none;
 }
+
 .des{
-    padding-left: $padding-menu;
+    padding: 10px 0px 10px 5px;
+    & p {
+        font-size: $font-size + 10;
+        color: black;
+    }
+    & :first-child {
+        font-weight: bold;
+    }
 }
 
 footer{
     width: $widthPC + 50;
     color: $white;
     background: $darkGray;
+    & .logo{
+        filter: invert(1);
+        margin: unset;
+        width: 200px;
+        padding: 30px 0px 10px $padding-menu + 30;
+    }
     & .footerBottom{
-        padding-left: $padding-menu + 30;
+        padding: 0px 0px 20px $padding-menu + 30;
+        font-size: 32px;
         & .footerWord{
         gap: $gap;
     }
     }
-
-    
 }
 
+#suggest{
+    padding-right: 19px;
+}
 
+#partner{
+    padding-right: 9px;
+}
 
+.navTop{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 40px;
+}
+#arrowLeft{
+// padding: 35px 0px $padding-menu 0px;
+font-size: 40px;
+// margin-left: 80px;
+@include respond(small) {
+// display: block;
+// margin-left: auto;
+// margin-right: auto;
+// width: $widthPC;
+}
+}
 
+.mainPart{
+    display: flex;
+    background: $lightGray;
+    padding: 0px 40px 0px 40px;
+    align-items: center;
+    font-size: 40px;
+    gap:20px;
+    // position: absolute;
+    bottom: 200px;
+    width: 100%;
+    padding-top: 200px;
+    & p {
+        font-family: $titleFont;
+    }
+} 
+
+.courseTitle{
+    background: $lightGray;
+    margin-top: 0px;
+    
+}
+.dessert p:nth-child(1) {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 4px;
+} 
+
+.dessert{
+    padding: 0px 10px 0px 10px;
+    border: 1px $white;
+    background: $white;
+    width: 100%;
+}
