@@ -400,7 +400,7 @@ footer .footerBottom .footerWord {
           mask-image: url(/Ohmyfood/images/purple-heart-svgrepo-com.svg);
   background-image: linear-gradient(#FF79DA, #9356DC);
   cursor: pointer;
-  animation: makeItfadeIn 0.4s backwards;
+  animation: makeItfadeIn 0.4s forwards;
 }
 
 #suggest {
@@ -411,16 +411,26 @@ footer .footerBottom .footerWord {
   padding-right: 9px;
 }
 
+.contact {
+  text-decoration: none;
+  color: white;
+}
+
 .navTop {
   display: flex;
   width: 80%;
   align-items: center;
   justify-content: space-around;
   padding-left: 40px;
+  text-decoration: none;
+  color: black;
+  font-size: 40px;
 }
 
 #arrowLeft {
   font-size: 40px;
+  color: black;
+  text-decoration: none;
 }
 
 .mainPart {
@@ -553,6 +563,16 @@ footer .footerBottom .footerWord {
   font-size: 20px;
   margin: 4px;
   font-weight: bold;
+}
+
+.checkmark :hover {
+  transform: rotate(45deg);
+  height: 45px;
+  animation: makeItfadeIn 1s 2s;
+  width: 20px;
+  margin-left: 50%;
+  border-bottom: 9px solid darkolivegreen;
+  border-right: 9px solid darkolivegreen;
 }
 
 .menuOptionMenu {

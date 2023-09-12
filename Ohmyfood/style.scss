@@ -284,10 +284,6 @@ header{
       }
 }
 
-// .desBottom{
-//     animation: makeItfadeIn 2s;
-// }
-
 .heartOutline{
     font-size: 36px;
     color: $purple;
@@ -428,6 +424,7 @@ footer{
 .fa-heart{
     color: $purple;
 }
+
 .fa-heart:hover{
     mask: var(--bg) no-repeat center;
     mask-size: cover;
@@ -435,7 +432,7 @@ footer{
     mask-image: url(/Ohmyfood/images/purple-heart-svgrepo-com.svg);
     background-image: linear-gradient(#FF79DA, #9356DC);
     cursor: pointer;
-    animation: makeItfadeIn 0.4s backwards;
+    animation: makeItfadeIn 0.4s forwards;
 }
 
 #suggest{
@@ -446,16 +443,26 @@ footer{
     padding-right: 9px;
 }
 
+.contact{
+    text-decoration: none;
+    color: $white;
+}
+
 .navTop{
     display: flex;
     width: 80%;
     align-items: center;
     justify-content: space-around;
     padding-left: 40px;
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
 }
 
 #arrowLeft{
 font-size: 40px;
+color: black;
+text-decoration: none;
 }
 
 .mainPart{
@@ -587,6 +594,18 @@ font-size: 40px;
             font-weight: bold;
         }
     } 
+}
+
+.checkmark{
+    :hover{
+    transform: rotate(45deg);
+    height: 45px;
+    animation: makeItfadeIn 1s 2s;
+    width: 20px;
+    margin-left: 50%;
+    border-bottom: 9px solid darkolivegreen;
+    border-right: 9px solid darkolivegreen;
+    }
 }
 
 .menuOptionMenu{
