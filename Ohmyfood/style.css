@@ -528,8 +528,51 @@ footer .footerBottom .footerWord {
   margin-bottom: 0px;
 }
 
-.dessert {
+.checkmark {
+  display: flex;
+  transition-property: width 2s linear;
+}
+.checkmark i {
+  opacity: 0;
+}
+.checkmark:hover {
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
+  cursor: pointer;
+  width: 87%;
+  display: flex;
+}
+.checkmark:hover .checkmarkIn {
+  width: 0px;
+}
+.checkmark:hover i {
+  color: #ffffff;
+  opacity: 1;
+  display: flex;
+  padding-left: 15px;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: #99E2D0;
   width: 100%;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  0% {
+    rotate: 0;
+    top: 0px;
+    opacity: 0;
+  }
+  100% {
+    rotate: 360deg;
+    top: 100px;
+    opacity: 1;
+  }
+}
+.dessert {
+  min-width: 100%;
   border: 1px white;
   background: white;
   display: flex;
@@ -541,6 +584,10 @@ footer .footerBottom .footerWord {
   font-size: 22px;
   box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1333333333);
   padding: 10px 0px 0px 0px;
+}
+.dessert:hover {
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
 }
 .dessert :first-child {
   padding-left: 20px;
@@ -565,14 +612,8 @@ footer .footerBottom .footerWord {
   font-weight: bold;
 }
 
-.checkmark :hover {
-  transform: rotate(45deg);
-  height: 45px;
-  animation: makeItfadeIn 1s 2s;
-  width: 20px;
-  margin-left: 50%;
-  border-bottom: 9px solid darkolivegreen;
-  border-right: 9px solid darkolivegreen;
+.dishBtn {
+  display: flex;
 }
 
 .menuOptionMenu {

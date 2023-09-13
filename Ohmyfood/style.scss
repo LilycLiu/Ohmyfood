@@ -557,9 +557,54 @@ text-decoration: none;
     padding-left: 40px;
     margin-bottom: 0px;
 }
+.checkmark{
+    display: flex;
+    transition-property: width 2s linear;
+    & i {
+    opacity: 0;
+    }
+    &:hover {
+
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+        cursor:pointer;
+        width: 87%;
+        display: flex;
+        .checkmarkIn{
+
+            width: 0px;
+        }        
+        & i{
+            color: #ffffff;
+            opacity: 1;
+            display: flex;
+            padding-left: 15px;
+            align-items: center;
+            justify-content: center;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            background: $tertiary;
+            width: 100%;
+            animation: fade 1s;
+        }
+    }
+}
+
+@keyframes fade {
+    0% {
+        rotate: 0;
+        top: 0px;
+        opacity: 0;
+    }
+    100% {
+        rotate: 360deg;
+        top: 100px;
+        opacity: 1;
+    }
+}
 
 .dessert{
-    width: 100%;
+    min-width: 100%;
     border: 1px $white;
     background: $white;
     display: flex;
@@ -571,6 +616,10 @@ text-decoration: none;
     font-size: $font-size + 8;
     box-shadow: $box-shadow;
     padding: 10px 0px 0px 0px;
+    &:hover{
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+    }
     & :first-child {
         padding-left: 20px;
         font-size: 28px;
@@ -596,16 +645,9 @@ text-decoration: none;
     } 
 }
 
-.checkmark{
-    :hover{
-    transform: rotate(45deg);
-    height: 45px;
-    animation: makeItfadeIn 1s 2s;
-    width: 20px;
-    margin-left: 50%;
-    border-bottom: 9px solid darkolivegreen;
-    border-right: 9px solid darkolivegreen;
-    }
+.dishBtn{
+    display: flex;
+
 }
 
 .menuOptionMenu{
