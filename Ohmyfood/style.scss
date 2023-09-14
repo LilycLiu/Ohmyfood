@@ -564,16 +564,11 @@ text-decoration: none;
     opacity: 0;
     }
     &:hover {
-
         border-top-right-radius: unset;
         border-bottom-right-radius: unset;
-        cursor:pointer;
-        width: 87%;
-        display: flex;
-        .checkmarkIn{
-
-            width: 0px;
-        }        
+        cursor: pointer;
+        width: 85%;
+        display: flex;        
         & i{
             color: #ffffff;
             opacity: 1;
@@ -593,12 +588,12 @@ text-decoration: none;
 @keyframes fade {
     0% {
         rotate: 0;
-        top: 0px;
+        right: 0px;
         opacity: 0;
     }
     100% {
         rotate: 360deg;
-        top: 100px;
+        right: 100px;
         opacity: 1;
     }
 }
@@ -673,5 +668,16 @@ text-decoration: none;
     @include respond(small) {
         justify-content: center;
         width: $widthPC + 5;
+    }
+}
+
+@keyframes spin{
+    0%{ 
+        left: 0px;
+        background-color: none;
+    }
+    100%{
+        left: 100px;
+        background-color: $tertiary;
     }
 }
