@@ -223,7 +223,7 @@ header {
   justify-content: space-evenly;
   gap: 20px;
   width: 90%;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
   flex-direction: column;
   background: #f2f2f2;
 }
@@ -460,17 +460,14 @@ footer .footerBottom .footerWord {
   font-family: "shrikhand", sans-serif;
 }
 
-.choiceCourses1 {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 20px;
-  padding-bottom: 80px;
-  flex-direction: column;
-  background: #f2f2f2;
-  width: 90%;
-}
-.choiceCourses1 i {
-  padding-right: 20px;
+.underLine {
+  background-color: #99E2D0;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  height: 4px;
+  width: 65px;
+  align-self: start;
+  margin-left: 41px;
 }
 
 @keyframes animate-fade {
@@ -559,12 +556,10 @@ footer .footerBottom .footerWord {
 @keyframes fade {
   0% {
     rotate: 0;
-    right: 0px;
     opacity: 0;
   }
   100% {
     rotate: 360deg;
-    right: 100px;
     opacity: 1;
   }
 }
@@ -641,14 +636,10 @@ footer .footerBottom .footerWord {
     width: 55%;
   }
 }
-
-@keyframes spin {
-  0% {
-    left: 0px;
-    background-color: none;
-  }
-  100% {
-    left: 100px;
-    background-color: #99E2D0;
-  }
+.orderButton:hover {
+  background-color: #c19cf0;
+  background-image: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.4);
+  transition: 0.7s;
 }

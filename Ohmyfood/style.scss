@@ -256,7 +256,7 @@ header{
     justify-content: space-evenly; 
     gap: $gap + 10;
     width: 90%;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
     flex-direction: column;
     background: $lightGray;
     & i {
@@ -492,18 +492,14 @@ text-decoration: none;
     }
 }
 
-.choiceCourses1{
-    display: flex;
-    justify-content: space-evenly; 
-    gap: $gap + 10;
-    padding-bottom: 80px;
-    flex-direction: column;
-    background: $lightGray;
-    width: 90%;
-    & i {
-    padding-right: $padding-menu;
-    }
-    
+.underLine{
+    background-color: $tertiary;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    height: 4px;
+    width: 65px;
+    align-self: start;
+    margin-left: 41px;
 }
 
 @keyframes animate-fade {
@@ -588,12 +584,10 @@ text-decoration: none;
 @keyframes fade {
     0% {
         rotate: 0;
-        right: 0px;
         opacity: 0;
     }
     100% {
         rotate: 360deg;
-        right: 100px;
         opacity: 1;
     }
 }
@@ -642,7 +636,6 @@ text-decoration: none;
 
 .dishBtn{
     display: flex;
-
 }
 
 .menuOptionMenu{
@@ -669,15 +662,11 @@ text-decoration: none;
         justify-content: center;
         width: $widthPC + 5;
     }
-}
-
-@keyframes spin{
-    0%{ 
-        left: 0px;
-        background-color: none;
-    }
-    100%{
-        left: 100px;
-        background-color: $tertiary;
+    &:hover {
+        background-color: #c19cf0;
+        background-image: none;
+        cursor: pointer;
+        box-shadow: 5px 5px 7px rgba(0,0,0,0.4);
+        transition: 0.7s;
     }
 }
