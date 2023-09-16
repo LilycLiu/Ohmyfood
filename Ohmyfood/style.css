@@ -525,21 +525,22 @@ footer .footerBottom .footerWord {
   margin-bottom: 0px;
 }
 
-.checkmark {
+.mainBtn {
   display: flex;
-  transition-property: width 2s linear;
 }
-.checkmark i {
+.mainBtn i {
   opacity: 0;
+  width: 0px;
+  background: transparent;
 }
-.checkmark:hover {
+.mainBtn:hover {
   border-top-right-radius: unset;
   border-bottom-right-radius: unset;
   cursor: pointer;
   width: 85%;
   display: flex;
 }
-.checkmark:hover i {
+.mainBtn:hover i {
   color: #ffffff;
   opacity: 1;
   display: flex;
@@ -549,12 +550,14 @@ footer .footerBottom .footerWord {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background: #99E2D0;
-  width: 100%;
   animation: fade 1s;
+  width: 600px;
+  transition: reverse width 2s;
 }
 
 @keyframes fade {
   0% {
+    left: 0px;
     rotate: 0;
     opacity: 0;
   }

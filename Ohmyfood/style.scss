@@ -553,11 +553,12 @@ text-decoration: none;
     padding-left: 40px;
     margin-bottom: 0px;
 }
-.checkmark{
+.mainBtn{
     display: flex;
-    transition-property: width 2s linear;
     & i {
     opacity: 0;
+    width: 0px;
+    background: transparent;
     }
     &:hover {
         border-top-right-radius: unset;
@@ -575,14 +576,16 @@ text-decoration: none;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
             background: $tertiary;
-            width: 100%;
             animation: fade 1s;
+            width: 600px;
+            transition: reverse width 2s;
         }
     }
 }
 
 @keyframes fade {
     0% {
+        left: 0px;
         rotate: 0;
         opacity: 0;
     }
