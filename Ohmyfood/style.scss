@@ -32,14 +32,28 @@ $box-shadowpurple: 0px 0px 8px 2px #9356dc;
     font-family: $textFont;
   }
 
+html{
+    margin: 0 auto;
+    width: 100%;
+}
+
+main{
+    margin: 0 auto;
+    width: 100%;
+}
+
 @mixin respond($breakpoint) {
     @if($breakpoint == medium)  {
-      @media (max-width: 992px) { @content }
+        @media (max-width: 992px) { @content }
     };
 
     @if($breakpoint == small)  {
-      @media (max-width: 768px) { @content }
+        @media (max-width: 768px) { @content }
     };
+
+    @if($breakpoint == large)  {
+        @media (min-width: 993px) { @content }
+      };
   } 
 
 .spinner{
@@ -111,6 +125,7 @@ $box-shadowpurple: 0px 0px 8px 2px #9356dc;
 
 
 .choiceMenu{
+    padding: 0px 30px 0px 0px;
     flex-direction: row;
     justify-content: center;    
     @include respond(small) {
@@ -120,12 +135,10 @@ $box-shadowpurple: 0px 0px 8px 2px #9356dc;
 }
 
 body{
-    width: $widthPC + 50;
-    max-width: $widthPX + 1184;
-    margin: 0 auto;
-    padding: 0 $padding-menu;
+    width:100%;
     box-sizing: border-box;
     align-items: center;
+    margin: 0px 0px 0px 0px;
     @include respond(small) {
         padding: unset;
         flex-flow: row wrap;
@@ -153,6 +166,10 @@ header{
 
 .logo{
     padding: $padding-menu 0px $padding-menu 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
     @include respond(small) {
     display: block;
     margin-left: auto;
@@ -230,7 +247,7 @@ header{
     background-image: linear-gradient($pink, $purple);
     border: 1px solid $purple;
     border-radius: $border-radiusPX + 65;
-    width: $widthPC + 30;
+    width: $widthPC;
     height: $widthPX + 50;
     font-size: $font-size + 8;
         &:hover {
@@ -264,9 +281,6 @@ header{
     padding-bottom: 50px;
     flex-direction: column;
     background: $lightGray;
-    & i {
-        padding-right: $padding-menu;
-    }
 }
 
 .choiceMenuList, .location{
@@ -340,6 +354,12 @@ header{
 .restaurant{
     background: $lightGray;
     padding: 10px 10px 80px 10px;
+    width: 100%;
+    @include respond(large)
+     {   
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .restaurantCards{
@@ -348,14 +368,27 @@ header{
     align-items: center;
     gap: $gap + 20px;
     position: relative;
-    }
-
+    @include respond(large)
+     {
+        justify-content: center;
+        align-self: center;
+        width: 90%;
+        
+        flex-direction: row;
+        margin: 0 10px 0 10px;
+        gap:20px;
+        }
+}
 
 .restaurantCard{
     width: $widthPC + 40;
     background: $white;
     border-radius: $border-radiusPX + 5;
     position: relative;
+    @include respond(large) {
+        flex-direction: row;
+        }
+
     & .restaurantNew{
         position: absolute;
         right: 20px;
@@ -417,10 +450,6 @@ footer{
     0%{
         opacity: 0;
     }
-    50% {
-        opacity: 0.5;
-        background-position: left;
-    }
     100%{
         opacity: 1;
     }
@@ -428,16 +457,22 @@ footer{
 
 .fa-heart{
     color: $purple;
+    font-size: 50px;
+    &:hover{
+        color: $white;
+    }
 }
-
-.fa-heart:hover{
+.desBottom{
+    &:hover{
     mask: var(--bg) no-repeat center;
     mask-size: cover;
     mask-size: contain;
-    mask-image: url(/Ohmyfood/images/purple-heart-svgrepo-com.svg);
+    mask-image: url(/images/heart-solid.svg);
+    max-height: 100%;
     background-image: linear-gradient(#FF79DA, #9356DC);
     cursor: pointer;
     animation: makeItfadeIn 0.4s forwards;
+    }
 }
 
 #suggest{
@@ -504,39 +539,11 @@ text-decoration: none;
     height: 4px;
     width: 65px;
     align-self: start;
-    margin-left: 41px;
 }
 
 @keyframes animate-fade {
     0% { opacity: 0; }
   100% { opacity: 1; }
-}
-
- .dessert1 {
-    animation-duration: 0.5s;
-    animation-name: animate-fade;
-    animation-delay: 0.3s;
-    animation-fill-mode: backwards;
-    animation-name: animate-pop;
-    animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
- }
-
- .dessert2 {
-    animation-duration: 0.5s;
-    animation-name: animate-fade;
-    animation-delay: 0.7s;
-    animation-fill-mode: backwards;
-    animation-name: animate-pop;
-    animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
- }
-
-.dessert3 {
-    animation-duration: 0.5s;
-    animation-name: animate-fade;
-    animation-delay: 1.1s;
-    animation-fill-mode: backwards;
-    animation-name: animate-pop;
-    animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
 }
 
  @keyframes animate-pop {
@@ -555,91 +562,108 @@ text-decoration: none;
     font-size: 28px;
     text-align: left;
     align-self: flex-start;
-    padding-left: 40px;
-    margin-bottom: 0px;
 }
+
 .mainBtn{
     display: flex;
-    & i {
-    opacity: 0;
-    width: 0px;
-    background: transparent;
-    }
-    &:hover {
-        border-top-right-radius: unset;
-        border-bottom-right-radius: unset;
-        cursor: pointer;
-        width: 85%;
-        display: flex;        
-        & i{
-            color: #ffffff;
-            opacity: 1;
-            display: flex;
-            padding-left: 15px;
-            align-items: center;
-            justify-content: center;
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px;
-            background: $tertiary;
-            animation: fade 1s;
-            width: 600px;
-            transition: reverse width 2s;
-        }
-    }
-}
-
-@keyframes fade {
-    0% {
-        left: 0px;
-        rotate: 0;
-        opacity: 0;
-    }
-    100% {
-        rotate: 360deg;
-        opacity: 1;
-    }
-}
-
-.dessert{
+    justify-content: space-between;
+    width: 400px;
+    height: 100px;
     min-width: 100%;
     border: 1px $white;
     background: $white;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: left;
     border: none;
     border-radius: $border-radiusPX;
     font-size: $font-size + 8;
-    box-shadow: $box-shadow;
-    padding: 10px 0px 0px 0px;
+    box-shadow: $box-shadow;    
+    padding: 0 0 0 8px;
     &:hover{
-        border-top-right-radius: unset;
-        border-bottom-right-radius: unset;
+        cursor: pointer;
     }
-    & :first-child {
-        padding-left: 20px;
-        font-size: 28px;
-        font-weight: bold;
-        margin: 4px;
-    } 
-
     & .menuIn{
+        overflow: hidden;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 20px 5px 0px;
-        & :first-child {
-            font-size: 24px;
+        flex-direction: column;
+        align-items: left;
+        gap: 20px;
+        & :first-child{
+            font-size: 28px;
             margin: 4px;
-            font-weight: unset;
-        }
-        & :last-child {
-            font-size: 20px;
-            margin: 4px;
+            margin-bottom: 6px;
             font-weight: bold;
         }
+        & :last-child{
+            font-size: 24px;
+            margin: 4px;
+        }
     } 
+    & .menuFull{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    & .price{
+        margin: 40px 20px 0 0;
+        font-size: 24px;
+        font-weight: bold;
+    }  
+    &:hover .courseIcon{
+        width: 100px;
+      }
+      
+    &:hover .fa-circle-check{
+        rotate: 360deg;
+        font-size: 35px;
+      }
+    .courseIcon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 0px;
+        position: relative;
+        background-color: $tertiary;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transition: 0.3s;
+        & i {
+            position: absolute;
+            color: white;
+            rotate: 0deg;
+            transition: 1s;
+        } 
+    }
+}
+
+.dessert1 {
+    animation-duration: 0.5s;
+    animation-name: animate-fade;
+    animation-delay: 0.3s;
+    animation-fill-mode: backwards;
+    animation-name: animate-pop;
+    animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
+ }
+
+.dessert2 {
+    animation-duration: 0.5s;
+    animation-name: animate-fade;
+    animation-delay: 0.7s;
+    animation-fill-mode: backwards;
+    animation-name: animate-pop;
+    animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
+ }
+
+.dessert3 {
+    animation-duration: 0.5s;
+    animation-name: animate-fade;
+    animation-delay: 1.1s;
+    animation-fill-mode: backwards;
+    animation-name: animate-pop;
+    animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
 }
 
 .dishBtn{

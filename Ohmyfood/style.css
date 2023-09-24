@@ -3,6 +3,16 @@
   font-family: "roboto", sans-serif;
 }
 
+html {
+  margin: 0 auto;
+  width: 100%;
+}
+
+main {
+  margin: 0 auto;
+  width: 100%;
+}
+
 .spinner {
   background-color: #9356DC;
   top: 50%;
@@ -67,6 +77,7 @@
   }
 }
 .choiceMenu {
+  padding: 0px 30px 0px 0px;
   flex-direction: row;
   justify-content: center;
 }
@@ -79,11 +90,9 @@
 
 body {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
   box-sizing: border-box;
   align-items: center;
+  margin: 0px 0px 0px 0px;
 }
 @media (max-width: 768px) {
   body {
@@ -113,6 +122,10 @@ header {
 
 .logo {
   padding: 20px 0px 20px 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 @media (max-width: 768px) {
   .logo {
@@ -196,7 +209,7 @@ header {
   background-image: linear-gradient(#FF79DA, #9356DC);
   border: 1px solid #9356DC;
   border-radius: 80px;
-  width: 80%;
+  width: 50%;
   height: 66px;
   font-size: 22px;
 }
@@ -232,9 +245,6 @@ header {
   padding-bottom: 50px;
   flex-direction: column;
   background: #f2f2f2;
-}
-.choiceCourses i {
-  padding-right: 20px;
 }
 
 .choiceMenuList, .location {
@@ -309,6 +319,13 @@ header {
 .restaurant {
   background: #f2f2f2;
   padding: 10px 10px 80px 10px;
+  width: 100%;
+}
+@media (min-width: 993px) {
+  .restaurant {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .restaurantCards {
@@ -318,12 +335,27 @@ header {
   gap: 30px;
   position: relative;
 }
+@media (min-width: 993px) {
+  .restaurantCards {
+    justify-content: center;
+    align-self: center;
+    width: 90%;
+    flex-direction: row;
+    margin: 0 10px 0 10px;
+    gap: 20px;
+  }
+}
 
 .restaurantCard {
   width: 90%;
   background: white;
   border-radius: 20px;
   position: relative;
+}
+@media (min-width: 993px) {
+  .restaurantCard {
+    flex-direction: row;
+  }
 }
 .restaurantCard .restaurantNew {
   position: absolute;
@@ -383,27 +415,28 @@ footer .footerBottom .footerWord {
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.5;
-    background-position: left;
-  }
   100% {
     opacity: 1;
   }
 }
 .fa-heart {
   color: #9356DC;
+  font-size: 50px;
+}
+.fa-heart:hover {
+  color: white;
 }
 
-.fa-heart:hover {
+.desBottom:hover {
   -webkit-mask: var(--bg) no-repeat center;
           mask: var(--bg) no-repeat center;
   -webkit-mask-size: cover;
           mask-size: cover;
   -webkit-mask-size: contain;
           mask-size: contain;
-  -webkit-mask-image: url(/Ohmyfood/images/purple-heart-svgrepo-com.svg);
-          mask-image: url(/Ohmyfood/images/purple-heart-svgrepo-com.svg);
+  -webkit-mask-image: url(/images/heart-solid.svg);
+          mask-image: url(/images/heart-solid.svg);
+  max-height: 100%;
   background-image: linear-gradient(#FF79DA, #9356DC);
   cursor: pointer;
   animation: makeItfadeIn 0.4s forwards;
@@ -473,7 +506,6 @@ footer .footerBottom .footerWord {
   height: 4px;
   width: 65px;
   align-self: start;
-  margin-left: 41px;
 }
 
 @keyframes animate-fade {
@@ -484,6 +516,97 @@ footer .footerBottom .footerWord {
     opacity: 1;
   }
 }
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+.courseTitle {
+  background: #f2f2f2;
+  display: flex;
+  font-size: 28px;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.mainBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  height: 100px;
+  min-width: 100%;
+  border: 1px white;
+  background: white;
+  display: flex;
+  text-align: left;
+  border: none;
+  border-radius: 15px;
+  font-size: 22px;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1333333333);
+  padding: 0 0 0 8px;
+}
+.mainBtn:hover {
+  cursor: pointer;
+}
+.mainBtn .menuIn {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 20px;
+}
+.mainBtn .menuIn :first-child {
+  font-size: 28px;
+  margin: 4px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.mainBtn .menuIn :last-child {
+  font-size: 24px;
+  margin: 4px;
+}
+.mainBtn .menuFull {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.mainBtn .price {
+  margin: 40px 20px 0 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+.mainBtn:hover .courseIcon {
+  width: 100px;
+}
+.mainBtn:hover .fa-circle-check {
+  rotate: 360deg;
+  font-size: 35px;
+}
+.mainBtn .courseIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 0px;
+  position: relative;
+  background-color: #99E2D0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  transition: 0.3s;
+}
+.mainBtn .courseIcon i {
+  position: absolute;
+  color: white;
+  rotate: 0deg;
+  transition: 1s;
+}
+
 .dessert1 {
   animation-duration: 0.5s;
   animation-name: animate-fade;
@@ -509,108 +632,6 @@ footer .footerBottom .footerWord {
   animation-fill-mode: backwards;
   animation-name: animate-pop;
   animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
-}
-
-@keyframes animate-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.5, 0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-}
-.courseTitle {
-  background: #f2f2f2;
-  display: flex;
-  font-size: 28px;
-  text-align: left;
-  align-self: flex-start;
-  padding-left: 40px;
-  margin-bottom: 0px;
-}
-
-.mainBtn {
-  display: flex;
-}
-.mainBtn i {
-  opacity: 0;
-  width: 0px;
-  background: transparent;
-}
-.mainBtn:hover {
-  border-top-right-radius: unset;
-  border-bottom-right-radius: unset;
-  cursor: pointer;
-  width: 85%;
-  display: flex;
-}
-.mainBtn:hover i {
-  color: #ffffff;
-  opacity: 1;
-  display: flex;
-  padding-left: 15px;
-  align-items: center;
-  justify-content: center;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #99E2D0;
-  animation: fade 1s;
-  width: 600px;
-  transition: reverse width 2s;
-}
-
-@keyframes fade {
-  0% {
-    left: 0px;
-    rotate: 0;
-    opacity: 0;
-  }
-  100% {
-    rotate: 360deg;
-    opacity: 1;
-  }
-}
-.dessert {
-  min-width: 100%;
-  border: 1px white;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-  border: none;
-  border-radius: 15px;
-  font-size: 22px;
-  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1333333333);
-  padding: 10px 0px 0px 0px;
-}
-.dessert:hover {
-  border-top-right-radius: unset;
-  border-bottom-right-radius: unset;
-}
-.dessert :first-child {
-  padding-left: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  margin: 4px;
-}
-.dessert .menuIn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 20px 5px 0px;
-}
-.dessert .menuIn :first-child {
-  font-size: 24px;
-  margin: 4px;
-  font-weight: unset;
-}
-.dessert .menuIn :last-child {
-  font-size: 20px;
-  margin: 4px;
-  font-weight: bold;
 }
 
 .dishBtn {
