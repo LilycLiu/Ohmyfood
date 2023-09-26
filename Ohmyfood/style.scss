@@ -148,12 +148,6 @@ body{
     } 
 }
 
-#navTop{
-    display: flex;
-    text-align: center;
-    width: $widthPC + 50;
-}
-
 main{
     width: $widthPC + 50;
 }
@@ -169,12 +163,17 @@ header{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 500px;
+    font-size: 58px;
+    @include respond(medium) {
+        width: 400px;
+        }
     @include respond(small) {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: $widthPC;
+    font-size: 50px;
     }
 }
 
@@ -247,7 +246,7 @@ header{
     background-image: linear-gradient($pink, $purple);
     border: 1px solid $purple;
     border-radius: $border-radiusPX + 65;
-    width: $widthPC;
+    width: 400px;
     height: $widthPX + 50;
     font-size: $font-size + 8;
         &:hover {
@@ -301,21 +300,6 @@ header{
 	100% {
         background-position: left;
       }
-}
-
-.heartOutline{
-    font-size: 36px;
-    color: $purple;
-}
-
-.heartFill{
-    font-size: 36px;
-}
-
-.heartFillMask{
-    position: relative;
-    top: 0;
-    right: 0;
 }
 
 .choiceMenuBtn{
@@ -373,7 +357,6 @@ header{
         justify-content: center;
         align-self: center;
         width: 90%;
-        
         flex-direction: row;
         margin: 0 10px 0 10px;
         gap:20px;
@@ -406,6 +389,7 @@ header{
     flex-direction: column;
     display: flex;
     text-decoration: none;
+    height: 461px;
 }
 
 .des{
@@ -413,6 +397,7 @@ header{
     margin: 20px;
     align-items: center;
     justify-content: space-between;
+    text-wrap: wrap;
     .desTop{
         & :first-child {
             font-size: $font-size + 10;
@@ -446,33 +431,33 @@ footer{
     }
 }
 
-  @keyframes makeItfadeIn {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-  }
-
-.fa-heart{
-    color: $purple;
+.heart-container > .fa-heart{
+    color: black;
     font-size: 50px;
-    &:hover{
-        color: $white;
-    }
 }
-.desBottom{
-    &:hover{
-    mask: var(--bg) no-repeat center;
-    mask-size: cover;
-    mask-size: contain;
-    mask-image: url(/images/heart-solid.svg);
-    max-height: 100%;
-    background-image: linear-gradient(#FF79DA, #9356DC);
+  
+.heart-fill-container > .fa-heart{
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+    background-image: linear-gradient(#ff79da, #9356dc);
+}
+  
+.heart-fill-container{
+    position: absolute;
+    overflow: hidden;
+    height: 0px;
+    top: 356px;
+    transition: .5s;
+    pointer-events: none;
+}     
+ 
+
+
+.heart-container .fa-heart:hover + .heart-fill-container{
+    height: 80px;
     cursor: pointer;
-    animation: makeItfadeIn 0.4s forwards;
-    }
 }
 
 #suggest{
@@ -493,10 +478,13 @@ footer{
     width: 80%;
     align-items: center;
     justify-content: space-around;
-    padding-left: 40px;
+    margin-left: 100px;
     text-decoration: none;
     color: black;
     font-size: 40px;
+    @include respond(small) {
+        margin-left: 20px;
+    }
 }
 
 #arrowLeft{
@@ -511,7 +499,7 @@ text-decoration: none;
     flex-direction: column;
     background: $lightGray;
     align-items: center;
-    font-size: 58px;
+    font-size: 50px;
     justify-content: space-between;
     gap:20px;
     position: relative;
@@ -519,6 +507,9 @@ text-decoration: none;
     border-top-left-radius: 80px;
     border-top-right-radius: 80px;
     margin-bottom: -100px;
+    @include respond(large) {
+        font-size: 58px;
+    }
 } 
 
 .mainTop{
@@ -534,11 +525,15 @@ text-decoration: none;
 
 .underLine{
     background-color: $tertiary;
-    margin-top: -10px;
+    margin-top: -30px;
     margin-bottom: 5px;
     height: 4px;
     width: 65px;
     align-self: start;
+    @include respond(large) {
+        align-self: center;
+        width: 110px;
+    }
 }
 
 @keyframes animate-fade {
@@ -562,14 +557,24 @@ text-decoration: none;
     font-size: 28px;
     text-align: left;
     align-self: flex-start;
+    @include respond(large) {
+        align-self: center;
+    }
 }
-
+.courseName{
+    text-align: left;
+    @include respond(large) {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    }   
+}
 .mainBtn{
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 600px;
     height: 100px;
-    min-width: 100%;
+    // min-width: 100%;
     border: 1px $white;
     background: $white;
     display: flex;
@@ -579,9 +584,24 @@ text-decoration: none;
     font-size: $font-size + 8;
     box-shadow: $box-shadow;    
     padding: 0 0 0 8px;
+    @include respond(large) {
+        width: 600px;
+        align-self: center;
+    }
+    @include respond(medium) {
+        min-width: 90%;
+        width: 600px;
+        align-self: center;
+    }
+    @include respond(small) {
+        min-width: 100%;
+        width: 600px;
+        align-self: center;
+    }
     &:hover{
         cursor: pointer;
     }
+
     & .menuIn{
         overflow: hidden;
         display: flex;
@@ -686,13 +706,14 @@ text-decoration: none;
     background-image: linear-gradient($pink, $purple);
     border: 1px solid $purple;
     border-radius: $border-radiusPX + 65;
-    width: $widthPC;
-    height: $widthPX + 100;
+    width: 350px;
+    height: 86px;
     font-size: $font-size + 18;
     margin-bottom: 160px;
     @include respond(small) {
         justify-content: center;
-        width: $widthPC + 5;
+        // width: $widthPC + 5;
+        height: 86px;
     }
     &:hover {
         background-color: #c19cf0;
