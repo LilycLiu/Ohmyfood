@@ -553,8 +553,9 @@ footer .footerBottom .footerWord {
 .mainBtn {
   display: flex;
   justify-content: space-between;
-  width: 600px;
   height: 100px;
+  min-width: 100%;
+  width: 600px;
   border: 1px white;
   background: white;
   display: flex;
@@ -567,21 +568,21 @@ footer .footerBottom .footerWord {
 }
 @media (min-width: 993px) {
   .mainBtn {
+    min-width: unset;
     width: 600px;
     align-self: center;
   }
 }
 @media (max-width: 992px) {
   .mainBtn {
-    min-width: 90%;
-    width: 600px;
+    min-width: unset;
+    width: 100%;
     align-self: center;
   }
 }
 @media (max-width: 768px) {
   .mainBtn {
-    min-width: 100%;
-    width: 600px;
+    width: 100%;
     align-self: center;
   }
 }

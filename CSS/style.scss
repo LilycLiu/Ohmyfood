@@ -572,9 +572,9 @@ text-decoration: none;
 .mainBtn{
     display: flex;
     justify-content: space-between;
-    width: 600px;
     height: 100px;
-    // min-width: 100%;
+    min-width: 100%;
+    width: 600px;
     border: 1px $white;
     background: $white;
     display: flex;
@@ -585,17 +585,17 @@ text-decoration: none;
     box-shadow: $box-shadow;    
     padding: 0 0 0 8px;
     @include respond(large) {
+        min-width: unset;
         width: 600px;
         align-self: center;
     }
     @include respond(medium) {
-        min-width: 90%;
-        width: 600px;
+        min-width: unset;
+        width: 100%;
         align-self: center;
     }
     @include respond(small) {
-        min-width: 100%;
-        width: 600px;
+        width: 100%;
         align-self: center;
     }
     &:hover{
