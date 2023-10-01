@@ -84,7 +84,6 @@ main {
 @media (max-width: 768px) {
   .choiceMenu {
     flex-direction: column;
-    align-items: left;
   }
 }
 
@@ -367,7 +366,6 @@ header {
   margin: 20px;
   align-items: center;
   justify-content: space-between;
-  text-wrap: wrap;
 }
 .des .desTop :first-child {
   font-size: 24px;
@@ -593,7 +591,6 @@ footer .footerBottom .footerWord {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: left;
   gap: 20px;
 }
 .mainBtn .menuIn :first-child {
@@ -621,7 +618,7 @@ footer .footerBottom .footerWord {
   width: 100px;
 }
 .mainBtn:hover .fa-circle-check {
-  rotate: 360deg;
+  transform: rotate(360deg);
   font-size: 35px;
 }
 .mainBtn .courseIcon {
@@ -639,7 +636,7 @@ footer .footerBottom .footerWord {
 .mainBtn .courseIcon i {
   position: absolute;
   color: white;
-  rotate: 0deg;
+  transform: rotate(0deg);
   transition: 1s;
 }
 

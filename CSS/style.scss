@@ -56,6 +56,7 @@ main{
       };
   } 
 
+  //spinner
 .spinner{
     background-color: $purple;
     top: 50%;
@@ -130,7 +131,6 @@ main{
     justify-content: center;    
     @include respond(small) {
         flex-direction: column;
-        align-items: left;
       }
 }
 
@@ -397,7 +397,6 @@ header{
     margin: 20px;
     align-items: center;
     justify-content: space-between;
-    text-wrap: wrap;
     .desTop{
         & :first-child {
             font-size: $font-size + 10;
@@ -431,6 +430,7 @@ footer{
     }
 }
 
+//heart animation
 .heart-container > .fa-heart{
     color: black;
     font-size: 50px;
@@ -569,6 +569,8 @@ text-decoration: none;
     justify-content: center;
     }   
 }
+
+//menu button animation
 .mainBtn{
     display: flex;
     justify-content: space-between;
@@ -606,7 +608,6 @@ text-decoration: none;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        align-items: left;
         gap: 20px;
         & :first-child{
             font-size: 28px;
@@ -636,7 +637,7 @@ text-decoration: none;
       }
       
     &:hover .fa-circle-check{
-        rotate: 360deg;
+        transform: rotate(360deg);
         font-size: 35px;
       }
     .courseIcon{
@@ -653,7 +654,7 @@ text-decoration: none;
         & i {
             position: absolute;
             color: white;
-            rotate: 0deg;
+            transform: rotate(0deg);
             transition: 1s;
         } 
     }
